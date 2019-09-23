@@ -1,3 +1,9 @@
+# Typically, for best practice.
+# You would setup the variable names and descriptions in variables.tf file (include default if any)
+# Then you would define a filename.tfvars (ie. starter.tfvars)
+# And in that file, that is where you would define values for those variables
+# And pass the tfvars file into -var-file on "terraform apply"
+
 # 3 types of variables: string, map, list
 variable "newvariable" {
   type = "string"
@@ -56,6 +62,11 @@ output "gcp_cidr_subnet1" {
 #####################
 # Input variables; this will be prompted as user input on "terraform apply"
 # Only works for string datatype; map and list can't be passed in
-variable new_value {
+# variable new_value {
   
-}
+# }
+
+# # terraform apply -var 'newmap={ subnet1="sally", subnet2="frank" }'
+# variable newmap {
+#   type = "map"
+# }
