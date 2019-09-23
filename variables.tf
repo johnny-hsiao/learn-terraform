@@ -6,7 +6,7 @@
 
 # 3 types of variables: string, map, list
 variable "newvariable" {
-  type = "string"
+  type    = "string"
   default = "thisisvalue"
 }
 
@@ -20,13 +20,13 @@ variable "maptype" {
 }
 
 variable "listtype" {
-  type = "list"
+  type    = "list"
   default = ["item1", "item2"]
 }
 
 variable networkname {
-  default = "thenewnet"
-  type = "string"
+  default     = "thenewnet"
+  type        = "string"
   description = "Just the network name for GCP"
 }
 
@@ -34,8 +34,8 @@ variable networkname {
 
 # Used for subnetworks
 variable gcp_ip_cidr_range {
-  default = "10.0.0.0/16"
-  type = "string"
+  default     = "10.0.0.0/16"
+  type        = "string"
   description = "IP CIDR Range for Google VPC."
 }
 
@@ -46,6 +46,22 @@ variable subnet_names {
     subnet2 = "subnettwo"
     subnet3 = "subnetthree"
   }
+}
+
+# variable "environment" {}
+variable "region" {}
+variable "availability_zones" {
+  type = "map"
+  default = {
+    zone1 = "us-west-2a"
+    zone2 = "us-west-2b"
+    zone3 = "us-west-2c"
+  }
+}
+
+variable "coffee_type" {
+  default     = "nothing"
+  description = "Identify what coffee level the cpplication needs."
 }
 
 #####################
@@ -63,7 +79,7 @@ output "gcp_cidr_subnet1" {
 # Input variables; this will be prompted as user input on "terraform apply"
 # Only works for string datatype; map and list can't be passed in
 # variable new_value {
-  
+
 # }
 
 # # terraform apply -var 'newmap={ subnet1="sally", subnet2="frank" }'
